@@ -37,6 +37,15 @@ ul,label{
 body a:hover{
 	text-decoration:none;
 }
+span.fa-thump-styling.fa.fa-thumbs-down {
+    font-size: 28px;
+    color: red;
+}
+
+span.fa-thump-styling.fa.fa-thumbs-up {
+    font-size: 28px;
+    color: green;
+}
 	/*sidebar navigation*/
 #sidebar {
     width:240px;
