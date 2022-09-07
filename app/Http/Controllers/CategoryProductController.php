@@ -12,19 +12,40 @@ class CategoryProductController extends Controller
 {
     public function add()
     {
-        return view('admin.add_category_product');
+        return view('admin.category_product.add');
     }
 
     public function all()
     {
         $categoryProducts = CategoryProduct::all();
-        return view('admin.all_category_product', compact('categoryProducts'));
+        return view('admin.category_product.all', compact('categoryProducts'));
     }
 
     public function save(Request $request)
     {
         CategoryProduct::query()->create($request->except('_token'));
         return Redirect::route('categoryProduct.add')->with('message', 'Thêm danh mục thành công!!');
+    }
+
+    public function edit($id)
+    {
+        $categoryProduct = CategoryProduct::query()->find($id);
+        return view('admin.category_product.edit', compact('categoryProduct'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $categoryProduct = CategoryProduct::query()->find($id)->update([
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+        return redirect()->route('categoryProduct.all')->with('message', 'Chỉnh sửa danh mục thành công !!');
+    }
+
+    public function delete($id)
+    {
+        CategoryProduct::query()->find($id)->delete();
+        return redirect()->route('categoryProduct.all')->with('message', 'Xóa danh mục thành công !!');
     }
 
     public function unactive($id)

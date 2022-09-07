@@ -68,9 +68,14 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="" class="active" ui-toggle-class=""><i
-                                            class="fa fa-pencil-square-o text-success text-active"></i><i
-                                            class="fa fa-times text-danger text"></i></a>
+                                    <a href="{{ route('categoryProduct.edit', ['id' => $categoryProduct->id]) }}"
+                                        class="active styling-option" ui-toggle-class="">
+                                        <i class="fa fa-pencil-square-o text-success text-active"></i>
+                                    </a>
+                                    <a onclick="return confirm('Are you sure to delete this Category Product?')" href="{{ route('categoryProduct.delete', ['id' => $categoryProduct->id]) }}"
+                                        class="active styling-option" ui-toggle-class="">
+                                        <i class="fa fa-times text-danger text"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

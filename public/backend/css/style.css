@@ -46,6 +46,10 @@ span.fa-thump-styling.fa.fa-thumbs-up {
     font-size: 28px;
     color: green;
 }
+
+a.active.styling-option {
+    font-size: 20px;
+}
 	/*sidebar navigation*/
 #sidebar {
     width:240px;
