@@ -8,7 +8,7 @@
                 </div>
             @endif
             <div class="panel-heading">
-                Liệt kê danh mục sản phẩm
+                Liệt kê sản phẩm
             </div>
             <div class="row w3-res-tb">
                 <div class="col-sm-5 m-b-xs">
@@ -40,39 +40,47 @@
                                     <input type="checkbox"><i></i>
                                 </label>
                             </th>
-                            <th>Tên danh mục sản phẩm</th>
-                            <th>Mô tả danh mục</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Hình sản phẩm</th>
+                            <th>Danh mục</th>
+                            <th>Thương hiệu</th>
                             <th>Hiển thị</th>
                             <th style="width:30px;"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categoryProducts as $categoryProduct)
+                        @foreach ($products as $product)
                             <tr>
                                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
                                 </td>
-                                <td>{{ $categoryProduct->name }}</td>
-                                <td>{{ $categoryProduct->description }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>
+                                    <img src="{{ asset($product->image) }}" alt="Picture" width="100" height="100">
+                                </td>
+                                <td>{{ $product->categoryProduct->name }}</td>
+                                <td>{{ $product->brandProduct->name }}</td>
                                 <td>
                                     <span class="text-ellipsis">
-                                        @if ($categoryProduct->status)
+                                        @if ($product->status)
                                             <a
-                                                href="{{ route('categoryProduct.unactive', ['id' => $categoryProduct->id]) }}">
+                                                href="{{ route('product.unactive', ['id' => $product->id]) }}">
                                                 <span class="fa-thump-styling fa fa-thumbs-up"></span>
                                             </a>
                                         @else
-                                            <a href="{{ route('categoryProduct.active', ['id' => $categoryProduct->id]) }}">
+                                            <a href="{{ route('product.active', ['id' => $product->id]) }}">
                                                 <span class="fa-thump-styling fa fa-thumbs-down"></span>
                                             </a>
                                         @endif
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="{{ route('categoryProduct.edit', ['id' => $categoryProduct->id]) }}"
+                                    <a href="{{ route('product.edit', ['id' => $product->id]) }}"
                                         class="active styling-option" ui-toggle-class="">
                                         <i class="fa fa-pencil-square-o text-success text-active"></i>
                                     </a>
-                                    <a onclick="return confirm('Are you sure to delete this Category Product?')" href="{{ route('categoryProduct.delete', ['id' => $categoryProduct->id]) }}"
+                                    <a onclick="return confirm('Are you sure to delete this Product?')" href="{{ route('product.delete', ['id' => $product->id]) }}"
                                         class="active styling-option" ui-toggle-class="">
                                         <i class="fa fa-times text-danger text"></i>
                                     </a>

@@ -27,7 +27,7 @@ class BrandProductController extends Controller
 
     public function edit($id)
     {
-        $brandProduct = BrandProduct::query()->find($id);
+        // $brandProduct = BrandProduct::query()->find($id);
         return view('admin.brand_product.edit', compact('brandProduct'));
     }
 

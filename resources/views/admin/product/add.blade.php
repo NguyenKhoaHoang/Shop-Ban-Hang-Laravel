@@ -13,7 +13,7 @@
                 @endif
 
                 <div class="position-center">
-                    <form role="form" action="{{ route('categoryProduct.save') }}" method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{ route('product.save') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Tên sản phẩm</label>
@@ -22,7 +22,7 @@
 
                         <div class="form-group">
                             <label>Giá sản phẩm</label>
-                            <input type="text" class="form-control" name="name" placeholder="Nhập giá sản phẩm">
+                            <input type="text" class="form-control" name="price" placeholder="Nhập giá sản phẩm">
                         </div>
 
                         <div class="form-group">
@@ -65,7 +65,7 @@
                                 <option value="1">Hiển thị</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-info">Thêm Danh Mục</button>
+                        <button type="submit" class="btn btn-info">Thêm Sản Phẩm</button>
                     </form>
                 </div>
 
